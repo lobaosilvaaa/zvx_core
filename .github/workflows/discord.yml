@@ -1,0 +1,88 @@
+name: Zorvax Discord Notifications
+
+on:
+  push:
+    branches:
+      - main
+      - development
+      - experimental
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set Embed Color
+        id: color
+        run: |
+          if [[ "${GITHUB_REF_NAME}" == "main" ]]; then
+            echo "color=5763719" >> $GITHUB_OUTPUT
+            echo "title=🚀 Production Update" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_REF_NAME}" == "development" ]]; then
+            echo "color=65450" >> $GITHUB_OUTPUT
+            echo "title=🧪 Development Commit" >> $GITHUB_OUTPUT
+          else
+            echo "color=10181046" >> $GITHUB_OUTPUT
+            echo "title=⚙️ Experimental Commit" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send Discord Notification
+        env:
+          DISCORD_WEBHOOK: https://discord.com/api/webhooks/1501701753962369096/pXaf0LTFLcZ5TRp0TShJo4fC0NfN5KV9dgXMIBt0YWkefAKagYHQ3TN45eevPinPlnt3
+          REPO_NAME: ${{ github.repository }}
+          BRANCH_NAME: ${{ github.ref_name }}
+          COMMIT_AUTHOR: ${{ github.actor }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          COMMIT_URL: ${{ github.event.head_commit.url }}
+          COMMIT_COUNT: 1
+
+        run: |
+          TIMESTAMP=$(date -u +"%H:%M UTC")
+
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "{
+            \"username\": \"Zorvax GitHub\",
+            \"avatar_url\": \"https://cdn.discordapp.com/attachments/1502061515216523345/1502061770347384974/LogoOficial.png?ex=69fe5789&is=69fd0609&hm=3e92a9b03b9ead4cf88a210247891da3786ebad6e764144f19bf00f8917a8120&\",
+            \"embeds\": [{
+              \"title\": \"${{ steps.color.outputs.title }}\",
+              \"color\": ${{ steps.color.outputs.color }},
+              \"thumbnail\": {
+                \"url\": \"https://cdn.discordapp.com/attachments/1502061515216523345/1502061770347384974/LogoOficial.png?ex=69fe5789&is=69fd0609&hm=3e92a9b03b9ead4cf88a210247891da3786ebad6e764144f19bf00f8917a8120&\"
+              },
+              \"fields\": [
+                {
+                  \"name\": \"📦 Repository\",
+                  \"value\": \"${REPO_NAME}\",
+                  \"inline\": true
+                },
+                {
+                  \"name\": \"🌿 Branch\",
+                  \"value\": \"${BRANCH_NAME}\",
+                  \"inline\": true
+                },
+                {
+                  \"name\": \"👨‍💻 Author\",
+                  \"value\": \"${COMMIT_AUTHOR}\",
+                  \"inline\": true
+                },
+                {
+                  \"name\": \"📌 Commits\",
+                  \"value\": \"${COMMIT_COUNT}\",
+                  \"inline\": true
+                },
+                {
+                  \"name\": \"📝 Commit Message\",
+                  \"value\": \"${COMMIT_MESSAGE}\"
+                },
+                {
+                  \"name\": \"🔗 Commit Link\",
+                  \"value\": \"[View Commit](${COMMIT_URL})\"
+                }
+              ],
+              \"footer\": {
+                \"text\": \"Zorvax Core Development Pipeline • ${TIMESTAMP}\"
+              }
+            }]
+          }" \
+          $DISCORD_WEBHOOK
