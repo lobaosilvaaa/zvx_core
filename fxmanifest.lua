@@ -13,7 +13,7 @@ shared_scripts {
     'shared/constants.lua',
     'shared/functions.lua',
     'shared/main.lua',
-    
+
     'config/config.lua'
 }
 
