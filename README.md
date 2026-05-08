@@ -2,14 +2,14 @@
 
 # zvx_core
 
-### Foundation Module of the Zorvax Core Ecosystem
+### Foundation Infrastructure of the Zorvax Ecosystem
 
-Modern modular infrastructure engineered for scalable FiveM roleplay servers.
+Modern modular framework architecture engineered for scalable FiveM roleplay servers.
 
 <br>
 
 ![Framework](https://img.shields.io/badge/Framework-Zorvax%20Core-A3FF12?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-In%20Development-1A1F29?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active%20Development-1A1F29?style=for-the-badge)
 ![Architecture](https://img.shields.io/badge/Architecture-Modular-0B0F14?style=for-the-badge)
 ![Version](https://img.shields.io/badge/Version-0.0.1--alpha-A3FF12?style=for-the-badge)
 
@@ -19,41 +19,70 @@ Modern modular infrastructure engineered for scalable FiveM roleplay servers.
 
 # Overview
 
-`zvx_core` is the central infrastructure module of the Zorvax Core ecosystem.
+`zvx_core` is the central infrastructure module of the Zorvax ecosystem.
 
-The framework is designed around modern software engineering principles focused on:
+The framework is designed around modern engineering principles focused on:
 
 - modularity
-- scalability
 - maintainability
+- scalability
 - performance
-- security
+- secure networking
 - isolated responsibilities
 
-Unlike traditional roleplay frameworks, `zvx_core` is built as an independent and scalable infrastructure layer rather than a monolithic server base.
+Unlike traditional monolithic roleplay frameworks, `zvx_core` is built as an independent infrastructure layer prepared for long-term ecosystem expansion.
 
 ---
 
 # Current Development Stage
 
-## Bootstrap Layer
+## Bootstrap & Runtime Infrastructure
 
 The framework currently includes:
 
 ✔ Resource bootstrap system  
 ✔ Shared runtime architecture  
 ✔ Global namespace initialization  
-✔ Environment detection layer  
+✔ Namespace preservation layer  
+✔ Runtime environment detection  
 ✔ Version management structure  
-✔ Modular folder hierarchy  
+✔ Logger infrastructure  
+✔ Debug mode support  
+✔ Client/server initialization  
 ✔ Shared configuration loading  
-✔ Client/server runtime initialization  
+✔ Modular folder hierarchy  
+
+---
+
+# Logger Infrastructure
+
+The framework now includes a centralized logging system.
+
+## Available Methods
+
+```lua
+ZVX.Logger.Info()
+ZVX.Logger.Warn()
+ZVX.Logger.Error()
+ZVX.Logger.Debug()
+````
+
+---
+
+## Runtime Example
+
+```txt id="r15a4j"
+[zvx_core] [INFO] Server initialized successfully.
+[zvx_core] [INFO] Version: 0.0.1-alpha
+[zvx_core] [DEBUG] Environment detected as SERVER.
+[zvx_core] [DEBUG] Resource name: zvx_core
+```
 
 ---
 
 # Architecture
 
-The framework architecture follows a modular and isolated structure.
+The framework follows a scalable and isolated modular structure.
 
 ## Current Structure
 
@@ -69,13 +98,11 @@ zvx_core/
 ├── locales/
 ├── docs/
 └── fxmanifest.lua
-````
+```
 
 ---
 
 # Core Philosophy
-
-The `zvx_core` module is designed to become the foundation layer for all future Zorvax ecosystem resources.
 
 The architecture prioritizes:
 
@@ -83,39 +110,24 @@ The architecture prioritizes:
 | --------------- | -------------------------------- |
 | Modularity      | Independent and isolated systems |
 | Security        | Validation-first infrastructure  |
-| Scalability     | Long-term expansion support      |
+| Scalability     | Long-term ecosystem expansion    |
 | Maintainability | Organized development standards  |
-| Performance     | Optimized runtime behavior       |
+| Performance     | Optimized runtime execution      |
 
 ---
 
-# Planned Systems
+# Planned Infrastructure
 
-The following systems are planned for upcoming development phases:
+Upcoming development phases include:
 
+* shared utility functions
 * callback infrastructure
 * player lifecycle manager
 * database abstraction layer
 * permission system
 * event protection layer
-* logging infrastructure
-* global state management
-* internal exports library
-
----
-
-# Runtime Initialization
-
-Current bootstrap output:
-
-```txt
-==================================================
-[Zorvax Core] Server initialized successfully.
-[Zorvax Core] Version: 0.0.1-alpha
-[Zorvax Core] Environment: SERVER
-[Zorvax Core] Resource: zvx_core
-==================================================
-```
+* runtime cache system
+* state synchronization
 
 ---
 
@@ -125,20 +137,21 @@ The framework follows strict engineering standards including:
 
 * snake_case naming convention
 * isolated module architecture
-* shared utility systems
+* centralized utility systems
 * server-side validation
+* predictable runtime flow
 * minimal dependency coupling
-* readable and maintainable code
+* maintainable code structure
 
-More information can be found inside the `/docs` directory.
+Additional documentation can be found inside the `/docs` directory.
 
 ---
 
 # Dependencies
 
-Current dependencies:
+Current requirements:
 
-```txt
+```txt id="jlwmpt"
 FXServer Artifact 7290+
 Lua 5.4
 ```
@@ -155,7 +168,7 @@ Future integrations may include:
 
 Detailed development roadmap:
 
-```txt
+```txt id="jlwmck"
 ROADMAP.md
 ```
 
@@ -169,8 +182,8 @@ This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
 <div align="center">
 
-### Zorvax Core
+### zvx_core
 
-Engineered for Scalable Infrastructure
+Building the Foundation of the Zorvax Ecosystem
 
 </div>
