@@ -34,7 +34,6 @@ jobs:
           COMMIT_AUTHOR: ${{ github.actor }}
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
           COMMIT_URL: ${{ github.event.head_commit.url }}
-          COMMIT_COUNT: 1
 
         run: |
           TIMESTAMP=$(date -u +"%H:%M UTC")
