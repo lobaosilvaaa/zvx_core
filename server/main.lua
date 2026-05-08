@@ -1,15 +1,12 @@
 CreateThread(function()
-    print('^2==================================================^7')
-    print(('^2[%s]^7 Server initialized successfully.'):format(ZVX.Name))
-    print(('^3[%s]^7 Version: %s'):format(
-        ZVX.Name,
-        ZVX.Version
-    ))
-    
-    print(('^5[%s]^7 Environment: SERVER'):format(ZVX.Name))
-    print(('^6[%s]^7 Resource: %s'):format(
-        ZVX.Name,
+    ZVX.Logger.Info('Server initialized successfully.')
+    ZVX.Logger.Info(('Version: %s'):format(ZVX.Version))
+
+    if ZVX.Environment.IsServer then
+        ZVX.Logger.Debug('Environment detected as SERVER.')
+    end
+
+    ZVX.Logger.Debug(('Resource name: %s'):format(
         ZVX.Environment.Resource
     ))
-    print('^2==================================================^7')
 end)

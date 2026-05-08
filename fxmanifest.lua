@@ -12,6 +12,9 @@ shared_scripts {
     'shared/version.lua',
     'shared/constants.lua',
     'shared/functions.lua',
+
+    'modules/logger/logger.lua',
+
     'shared/main.lua',
 
     'config/config.lua'
