@@ -28,7 +28,7 @@ jobs:
 
       - name: Send Discord Notification
         env:
-          DISCORD_WEBHOOK: https://discord.com/api/webhooks/1501701753962369096/pXaf0LTFLcZ5TRp0TShJo4fC0NfN5KV9dgXMIBt0YWkefAKagYHQ3TN45eevPinPlnt3
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           REPO_NAME: ${{ github.repository }}
           BRANCH_NAME: ${{ github.ref_name }}
           COMMIT_AUTHOR: ${{ github.actor }}
