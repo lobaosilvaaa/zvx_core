@@ -38,6 +38,7 @@ jobs:
 
         run: |
           TIMESTAMP=$(date -u +"%H:%M UTC")
+          COMMIT_COUNT=$(jq length <<< '${{ toJson(github.event.commits) }}')
 
           curl -H "Content-Type: application/json" \
           -X POST \
