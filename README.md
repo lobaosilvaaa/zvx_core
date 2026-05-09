@@ -53,30 +53,55 @@ The framework currently includes:
 ✔ Recursive table copy utility  
 ✔ Shared configuration loading  
 ✔ Client/server initialization  
+✔ Callback registration system  
+✔ Async callback communication layer  
+
+---
+
+# Callback Infrastructure
+
+The framework now includes an internal callback communication system designed for asynchronous client/server networking.
+
+## Available Methods
+
+```lua
+ZVX.Callbacks.Register()
+ZVX.Callbacks.Trigger()
+````
+
+---
+
+## Callback Example
+
+### Server
+
+```lua id="jlwmh0"
+ZVX.Callbacks.Register('zvx:test:ping', function(source, cb)
+    cb('pong')
+end)
+```
+
+### Client
+
+```lua id="jlwm5d"
+ZVX.Callbacks.Trigger('zvx:test:ping', function(response)
+    print(response)
+end)
+```
 
 ---
 
 # Utility Infrastructure
 
-The framework now includes reusable shared utility systems.
+Reusable shared utility systems are now available.
 
 ## Available Functions
 
-```lua
+```lua id="jlwmj2"
 ZVX.Functions.TableCopy()
 ZVX.Functions.GenerateUUID()
 ZVX.Functions.IsValidSource()
 ZVX.Functions.IsPlayerLoaded()
-````
-
----
-
-## Example Usage
-
-```lua id="jlwm0x"
-local generated_uuid = ZVX.Functions.GenerateUUID(12)
-
-local copied_table = ZVX.Functions.TableCopy(original_table)
 ```
 
 ---
@@ -87,7 +112,7 @@ Centralized logging architecture designed for scalable framework monitoring and 
 
 ## Available Methods
 
-```lua
+```lua id="jlwmf9"
 ZVX.Logger.Info()
 ZVX.Logger.Warn()
 ZVX.Logger.Error()
@@ -96,16 +121,16 @@ ZVX.Logger.Debug()
 
 ---
 
-## Runtime Example
+# Runtime Validation
 
-```txt id="jlwmj9"
-[zvx_core] [INFO] Server initialized successfully.
-[zvx_core] [INFO] Version: 0.0.1-alpha
-[zvx_core] [DEBUG] Environment detected as SERVER.
-[zvx_core] [DEBUG] Resource name: zvx_core
-[zvx_core] [INFO] Generated UUID: 02OF7M2B9XKD
-[zvx_core] [DEBUG] TableCopy utility validated successfully.
-```
+Current validated systems:
+
+✔ Server runtime bootstrap
+✔ Logger initialization
+✔ Utility validation
+✔ Callback registration
+✔ Async networking flow
+✔ Client/server communication
 
 ---
 
@@ -115,7 +140,7 @@ The framework follows a scalable and isolated modular structure.
 
 ## Current Structure
 
-```txt id="jlwm7y"
+```txt id="jlwm6w"
 zvx_core/
 │
 ├── client/
@@ -149,7 +174,8 @@ The architecture prioritizes:
 
 Upcoming development phases include:
 
-* callback infrastructure
+* timeout protection
+* promise-based callbacks
 * player lifecycle manager
 * database abstraction layer
 * permission system
@@ -179,7 +205,7 @@ Additional documentation can be found inside the `/docs` directory.
 
 Current requirements:
 
-```txt id="jlwmps"
+```txt id="jlwmjz"
 FXServer Artifact 7290+
 Lua 5.4
 ```
@@ -196,7 +222,7 @@ Future integrations may include:
 
 Detailed development roadmap:
 
-```txt id="jlwmb3"
+```txt id="jlwm1d"
 ROADMAP.md
 ```
 
