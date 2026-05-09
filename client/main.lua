@@ -1,3 +1,7 @@
 CreateThread(function()
-    print(('^2[%s]^7 Client initialized successfully.'):format(ZVX.Name))
+    Wait(3000)
+
+    ZVX.Callbacks.Trigger('zvx:test:ping', function(response)
+        print(('[CLIENT] Callback response: %s'):format(response))
+    end)
 end)

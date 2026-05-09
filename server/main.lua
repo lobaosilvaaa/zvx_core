@@ -28,4 +28,11 @@ CreateThread(function()
     if copied_table.nested.framework then
         ZVX.Logger.Debug('TableCopy utility validated successfully.')
     end
+
+    ZVX.Callbacks.Register('zvx:test:ping', function(source, cb)
+        ZVX.Logger.Info(('Ping request received from source %s'):format(source))
+
+        cb('pong')
+    end)
+
 end)

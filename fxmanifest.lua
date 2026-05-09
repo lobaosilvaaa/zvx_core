@@ -21,10 +21,14 @@ shared_scripts {
 }
 
 client_scripts {
+    'modules/callbacks/client.lua',
+
     'client/main.lua'
 }
 
 server_scripts {
+    'modules/callbacks/server.lua',
+
     'server/main.lua'
 }
 
