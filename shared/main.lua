@@ -1,4 +1,4 @@
-ZVX.Logger = ZVX.Logger or {}
+ZVX = rawget(_G, 'ZVX') or {}
 
 ZVX.Name = 'Zorvax Core'
 ZVX.Author = 'Zorvax Labs'

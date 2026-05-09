@@ -1,6 +1,9 @@
 CreateThread(function()
     ZVX.Logger.Info('Server initialized successfully.')
-    ZVX.Logger.Info(('Version: %s'):format(ZVX.Version))
+
+    ZVX.Logger.Info(('Version: %s'):format(
+        ZVX.Version
+    ))
 
     if ZVX.Environment.IsServer then
         ZVX.Logger.Debug('Environment detected as SERVER.')
@@ -29,10 +32,16 @@ CreateThread(function()
         ZVX.Logger.Debug('TableCopy utility validated successfully.')
     end
 
+    if not ZVX.Callbacks.Register then
+        ZVX.Logger.Error('Callback system failed to initialize.')
+        return
+    end
+
     ZVX.Callbacks.Register('zvx:test:ping', function(source, cb)
-        ZVX.Logger.Info(('Ping request received from source %s'):format(source))
+        ZVX.Logger.Info((
+            'Ping request received from source %s'
+        ):format(source))
 
         cb('pong')
     end)
-
 end)
