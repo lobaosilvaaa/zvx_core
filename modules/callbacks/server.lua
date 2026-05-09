@@ -1,3 +1,5 @@
+print('^2[zvx_core]^7 Loading callback server module...')
+
 if not ZVX then
     return
 end

@@ -28,7 +28,6 @@ client_scripts {
 
 server_scripts {
     'modules/callbacks/server.lua',
-
     'server/main.lua'
 }
 
