@@ -21,16 +21,16 @@ Modern modular framework architecture engineered for scalable FiveM roleplay ser
 
 `zvx_core` is the central infrastructure module of the Zorvax ecosystem.
 
-The framework is designed around modern engineering principles focused on:
+The framework is engineered around modern software architecture principles focused on:
 
 - modularity
 - maintainability
 - scalability
-- performance
 - secure networking
+- reusable infrastructure
 - isolated responsibilities
 
-Unlike traditional monolithic roleplay frameworks, `zvx_core` is built as an independent infrastructure layer prepared for long-term ecosystem expansion.
+Unlike traditional monolithic roleplay frameworks, `zvx_core` is designed as a scalable infrastructure layer prepared for long-term ecosystem expansion.
 
 ---
 
@@ -48,15 +48,42 @@ The framework currently includes:
 ✔ Version management structure  
 ✔ Logger infrastructure  
 ✔ Debug mode support  
-✔ Client/server initialization  
+✔ Shared utility library  
+✔ UUID generation system  
+✔ Recursive table copy utility  
 ✔ Shared configuration loading  
-✔ Modular folder hierarchy  
+✔ Client/server initialization  
+
+---
+
+# Utility Infrastructure
+
+The framework now includes reusable shared utility systems.
+
+## Available Functions
+
+```lua
+ZVX.Functions.TableCopy()
+ZVX.Functions.GenerateUUID()
+ZVX.Functions.IsValidSource()
+ZVX.Functions.IsPlayerLoaded()
+````
+
+---
+
+## Example Usage
+
+```lua id="jlwm0x"
+local generated_uuid = ZVX.Functions.GenerateUUID(12)
+
+local copied_table = ZVX.Functions.TableCopy(original_table)
+```
 
 ---
 
 # Logger Infrastructure
 
-The framework now includes a centralized logging system.
+Centralized logging architecture designed for scalable framework monitoring and debugging.
 
 ## Available Methods
 
@@ -65,17 +92,19 @@ ZVX.Logger.Info()
 ZVX.Logger.Warn()
 ZVX.Logger.Error()
 ZVX.Logger.Debug()
-````
+```
 
 ---
 
 ## Runtime Example
 
-```txt id="r15a4j"
+```txt id="jlwmj9"
 [zvx_core] [INFO] Server initialized successfully.
 [zvx_core] [INFO] Version: 0.0.1-alpha
 [zvx_core] [DEBUG] Environment detected as SERVER.
 [zvx_core] [DEBUG] Resource name: zvx_core
+[zvx_core] [INFO] Generated UUID: 02OF7M2B9XKD
+[zvx_core] [DEBUG] TableCopy utility validated successfully.
 ```
 
 ---
@@ -86,7 +115,7 @@ The framework follows a scalable and isolated modular structure.
 
 ## Current Structure
 
-```txt
+```txt id="jlwm7y"
 zvx_core/
 │
 ├── client/
@@ -120,7 +149,6 @@ The architecture prioritizes:
 
 Upcoming development phases include:
 
-* shared utility functions
 * callback infrastructure
 * player lifecycle manager
 * database abstraction layer
@@ -151,7 +179,7 @@ Additional documentation can be found inside the `/docs` directory.
 
 Current requirements:
 
-```txt id="jlwmpt"
+```txt id="jlwmps"
 FXServer Artifact 7290+
 Lua 5.4
 ```
@@ -168,7 +196,7 @@ Future integrations may include:
 
 Detailed development roadmap:
 
-```txt id="jlwmck"
+```txt id="jlwmb3"
 ROADMAP.md
 ```
 
